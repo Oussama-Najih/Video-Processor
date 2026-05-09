@@ -28,7 +28,7 @@ try:
         print(f"Analyzing {sheet_path}...")
 
         with Image.open(sheet_path) as img:
-            for i in range(num_frames):
+            for i in range(30):
                 frame = createFrame(img, i)
                 temp_filename = f"frame_{i}.png"
                 temp_path = os.path.join(tmp_dir, temp_filename)
