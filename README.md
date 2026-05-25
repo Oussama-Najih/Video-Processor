@@ -22,9 +22,9 @@ La plateforme est répartie en **3 projets complémentaires** :
 
 3) **Backend Processing (Python) — Microservices** — `Oussama-Najih/Video-Processor`  
    Un ensemble de **microservices Python** dédiés au traitement vidéo :
-   - transcodage / génération des rendus
-   - génération du streaming **HLS** (manifest `.m3u8` + segments)
-   - tâches/pipeline asynchrone liées au processing
+   - transcodage / génération des rendus (**HLS**)
+   - détection de contenu NSFW (analyse des frames + scoring)
+   - génération de **miniatures** (sprites + VTT)
 
 
 ### Parcours typique d’une vidéo
@@ -37,9 +37,12 @@ La plateforme est répartie en **3 projets complémentaires** :
 6. Le backend expose au frontend les manifests/index avec des URLs présignées.
 7. La vidéo devient consultable et indexée pour la recherche (Elasticsearch).
 
-# Video-Processor — Backend Processing (Python Microservices)
+---
+
+# Video-Processor : Backend Processing (Python Microservices)
 
 Ce dépôt contient la partie **processing vidéo** de la plateforme **VideoFlow**.  
+
 Il s’agit d’un ensemble de **microservices Python** qui consomment des événements Kafka pour traiter les vidéos (**HLS**, **thumbnails**, **détection NSFW**) puis publier l’état/résultat du pipeline.
 
 ---
@@ -144,4 +147,13 @@ Ce script :
 ## Licence
 
 - Le code du projet : **MIT**
-- Le dossier `open_nsfw/` contient du code sous licence de type **BSD (Yahoo Inc.)**.  
+- Le dossier `open_nsfw/` contient du code sous licence de type **BSD (Yahoo Inc.)**.
+
+### Licences tierces (Third‑party licenses)
+
+Ce projet inclut du code provenant de tiers :
+
+- **`open_nsfw/`** — Licence de type **BSD (Yahoo Inc., 2016)**  
+  Copyright 2016, Yahoo Inc.  
+  Les conditions de redistribution et la clause de non‑responsabilité s’appliquent à ce dossier.  
+  Voir le fichier `open_nsfw/LICENSE` pour le texte complet de la licence.
